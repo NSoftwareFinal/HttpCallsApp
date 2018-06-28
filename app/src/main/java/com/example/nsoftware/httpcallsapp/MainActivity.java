@@ -4,9 +4,15 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nsoftware.httpcallsapp.Adapter.PhotoAdapter;
 import com.example.nsoftware.httpcallsapp.Model.Photo;
@@ -52,8 +58,39 @@ public class MainActivity extends AppCompatActivity {
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.setMessage("Loading...");
-    }
 
+        // todo/intent.
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            // NullPointerException.
+            String name = bundle.getString(WelcomeActivity.EXTRA_KEY_NAME);
+            int age = bundle.getInt(WelcomeActivity.EXTRA_KEY_AGE, 0);
+
+//            // todo/styleable-toast library.
+//            StyleableToast.makeText(this, "Hello World!",
+//                    Toast.LENGTH_LONG, R.style.ToastStyle).show();
+
+            // todo/custom toast.
+            View layout = getLayoutInflater().inflate(R.layout.toast_view,
+                    (ViewGroup) findViewById(R.id.toast_root));
+            // todo/toast findViews.
+            ImageView toast_iv = layout.findViewById(R.id.toast_iv);
+            TextView toast_tv = layout.findViewById(R.id.toast_tv);
+
+            // todo/toast initViews.
+            toast_tv.setText("Welcome, " + name);
+            toast_iv.setImageResource(R.drawable.ic_emotion);
+
+            Toast toast = new Toast(getApplication());
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
+
+        }
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

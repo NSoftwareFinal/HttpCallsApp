@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeActivity">
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Enter your name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_name"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Enter your age"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btn_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_age"
+        android:layout_centerHorizontal="true"
+        android:text="Welcome" />
+
+    <Button
+        android:id="@+id/btn_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_info"
+        android:layout_centerHorizontal="true"
+        android:onClick="showToast"
+        android:text="Normal Toast with Icon" />
+
+    <Button
+        android:id="@+id/btn_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_warning"
+        android:layout_centerHorizontal="true"
+        android:onClick="showToast"
+        android:text="Info Toast" />
+
+    <Button
+        android:id="@+id/btn_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_success"
+        android:layout_centerHorizontal="true"
+        android:onClick="showToast"
+        android:text="Warning Toast" />
+
+    <Button
+        android:id="@+id/btn_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_error"
+        android:layout_centerHorizontal="true"
+        android:onClick="showToast"
+        android:text="Success Toast" />
+
+    <Button
+        android:id="@+id/btn_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="showToast"
+        android:text="Error Toast" />
+
+</RelativeLayout>
